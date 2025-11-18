@@ -1,0 +1,38 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "CIFAR ResNet 2b",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/alpha-beta-CROWN/complete_verifier/abcrown.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/alpha-beta-CROWN/complete_verifier",
+      "env": {
+        "COMPLETE_VERIFIER_DEBUG": "1"
+      },
+      "args": [
+        "--config",
+        "${workspaceFolder}/alpha-beta-CROWN/complete_verifier/exp_configs/tutorial_examples/cifar_resnet_2b.yaml"
+      ]
+    },
+    {
+      "name": "Iris MLP",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/alpha-beta-CROWN/complete_verifier/abcrown.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "COMPLETE_VERIFIER_DEBUG": "1"
+      },
+      "args": [
+        "--config",
+        "${workspaceFolder}/mlp-iris/iris_onnx_vnnlib.yaml"
+      ]
+    }
+  ]
+}

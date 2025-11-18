@@ -1,0 +1,29 @@
+; 4 inputs and 3 outputs (Iris MLP)
+
+(declare-const X_0 Real)
+(declare-const X_1 Real)
+(declare-const X_2 Real)
+(declare-const X_3 Real)
+
+(declare-const Y_0 Real)
+(declare-const Y_1 Real)
+(declare-const Y_2 Real)
+
+; Input bounds with epsilon perturbation
+(assert (>= X_0 6.595))
+(assert (<= X_0 6.605))
+(assert (>= X_1 2.895))
+(assert (<= X_1 2.905))
+(assert (>= X_2 4.595))
+(assert (<= X_2 4.605))
+(assert (>= X_3 1.295))
+(assert (<= X_3 1.305))
+
+; Robustness property: checking if adversarial example exists
+; UNSAT = network is robust (maintains label-1 for all inputs)
+; SAT = adversarial example found (network is not robust)
+(assert (or
+            (and (>= Y_0 Y_1))
+            (and (>= Y_2 Y_1))
+        )
+)

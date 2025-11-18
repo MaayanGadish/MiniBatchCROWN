@@ -1,0 +1,24 @@
+; 4 inputs and 3 outputs (Iris MLP)
+
+(declare-const X_0 Real)
+(declare-const X_1 Real)
+(declare-const X_2 Real)
+(declare-const X_3 Real)
+
+(declare-const Y_0 Real)
+(declare-const Y_1 Real)
+(declare-const Y_2 Real)
+
+; Replace the bounds below with your lo/hi values.
+(assert (>= X_0 5.00))
+(assert (<= X_0 5.20))
+(assert (>= X_1 3.42))
+(assert (<= X_1 3.62))
+(assert (>= X_2 1.30))
+(assert (<= X_2 1.50))
+(assert (>= X_3 0.15))
+(assert (<= X_3 0.35))
+
+; Label-0 robustness: Y_0 >= others
+(assert (>= Y_0 Y_1))
+(assert (>= Y_0 Y_2))

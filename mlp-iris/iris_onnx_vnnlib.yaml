@@ -1,0 +1,19 @@
+model:
+  onnx_path: ./mlp-iris/mlp_iris.onnx
+
+specification:
+  vnnlib_path: ./mlp-iris/iris_eps0.005_label1.vnnlib 
+
+solver:
+  batch_size: 2048  # Number of subdomains to compute in parallel in bound solver. Decrease if you run out of memory.
+  alpha-crown:
+    iteration: 100   # Number of iterations for alpha-CROWN optimization. Alpha-CROWN is used to compute all intermediate layer bounds before branch and bound starts.
+    lr_alpha: 0.1    # Learning rate for alpha in alpha-CROWN. The default (0.1) is typically ok.
+  beta-crown:
+    lr_alpha: 0.01  # Learning rate for optimizing the alpha parameters, the default (0.01) is typically ok, but you can try to tune this parameter to get better lower bound.
+    lr_beta: 0.05  # Learning rate for optimizing the beta parameters, the default (0.05) is typically ok, but you can try to tune this parameter to get better lower bound.
+    iteration: 20  # Number of iterations for beta-CROWN optimization. 20 is often sufficient, 50 or 100 can also be used.
+
+
+general:
+  seed: 1

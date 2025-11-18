@@ -1,0 +1,24 @@
+; 4 inputs and 3 outputs (Iris MLP)
+
+(declare-const X_0 Real)
+(declare-const X_1 Real)
+(declare-const X_2 Real)
+(declare-const X_3 Real)
+
+(declare-const Y_0 Real)
+(declare-const Y_1 Real)
+(declare-const Y_2 Real)
+
+; Input bounds with epsilon perturbation
+(assert (>= X_0 6.600))
+(assert (<= X_0 6.600))
+(assert (>= X_1 2.900))
+(assert (<= X_1 2.900))
+(assert (>= X_2 4.600))
+(assert (<= X_2 4.600))
+(assert (>= X_3 1.300))
+(assert (<= X_3 1.300))
+
+; Label-1 robustness: Y_1 >= others
+(assert (>= Y_1 Y_0))
+(assert (>= Y_1 Y_2))
